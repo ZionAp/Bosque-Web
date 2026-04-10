@@ -1,0 +1,23 @@
+{
+  "name": "bosque-web",
+  "version": "1.0.0",
+  "description": "Bosque Appliance Solutions website",
+  "private": true,
+  "scripts": {
+    "build:css": "cleancss -o assets/styles.min.css assets/styles.css",
+    "build:js": "terser assets/main.js -o assets/main.min.js -c -m",
+    "build": "npm run build:css && npm run build:js",
+    "audit": "lighthouse https://bosqueappliance.com --output=html --output-path=./lighthouse-report.html",
+    "audit:json": "lighthouse https://bosqueappliance.com --output=json --output-path=./lighthouse-report.json",
+    "deploy": "wrangler pages deploy ."
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "cssnano": "^7.1.4",
+    "html-minifier-terser": "^7.2.0",
+    "lighthouse": "^12.8.2",
+    "playwright": "^1.59.1",
+    "terser": "^5.46.1",
+    "wrangler": "^4.81.0"
+  }
+}
