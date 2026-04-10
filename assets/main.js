@@ -23,16 +23,11 @@
     },
     
     applyTheme(theme) {
-      if (theme === 'dark') {
-        document.body.classList.add('dark-mode');
-      } else {
-        document.body.classList.remove('dark-mode');
-      }
+      document.body.classList.toggle('dark-mode', theme === 'dark');
     },
     
     toggle() {
-      const isDark = document.body.classList.contains('dark-mode');
-      const newTheme = isDark ? 'light' : 'dark';
+      const newTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
       this.applyTheme(newTheme);
       localStorage.setItem(this.STORAGE_KEY, newTheme);
     },
@@ -51,6 +46,15 @@
         }
       });
     }
+  };
+
+  // Cloudflare Turnstile
+  window.onTurnstileSuccess = function(token) {
+    document.getElementById('cf-turnstile-response').value = token;
+  };
+  
+  window.onTurnstileError = function() {
+    console.error('Turnstile error - form may not submit');
   };
 
   // Mobile Menu
