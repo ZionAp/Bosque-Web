@@ -1389,6 +1389,28 @@ body.dark-mode .service-price {
   border-bottom: none;
 }
 
+.maintenance-tips {
+  max-width: 700px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.maintenance-tips li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.maintenance-tips li:last-child {
+  border-bottom: none;
+}
+
+.maintenance-tips strong {
+  color: var(--primary);
+}
+
 .testimonial-card {
   background: var(--bg);
   border: 1px solid var(--border);
